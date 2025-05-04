@@ -18,8 +18,8 @@ index.html
     <script src="components.js"></script>
   </head>
   <body>
-    <div id="myComponent-1"></div>
-    <div id="myPageContainerComponent-1" src="subpage.html"></div>
+    <div id="dl-myComponent-1"></div>
+    <div id="dli-myPageContainerComponent-1" src="subpage.html"></div>
   </body>
 </html>
 ```
@@ -28,18 +28,21 @@ components.js
 
 ```js
 divlever.udfs.mySubComponent = function(cmd, payload, n) {
-    divlever.render(`world`);
+    divlever.render(`world`, payload);
 };
 divlever.udfs.myComponent = function(cmd, payload, n) {
     var subN = n;
-    divlever.render(`hello, <div id="mySubComponent-${subN}"></div>`);
+    divlever.render(`hello, <div id="dl-mySubComponent-${subN}"></div>`, payload);
+};
+divlever.udfs.myPageContainerComponent = function(cmd, payload, n) {
+    divlever.render(null, payload);
 };
 ```
 
 subpage.html
 
 ```html
-<div id="myComponent-2"></div> from fetched subpage.
+<div id="dl-myComponent-2"></div> from fetched subpage.
 ```
 
 ### Running the server

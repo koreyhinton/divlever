@@ -136,7 +136,7 @@ divlever.collectValues = function(componentId) {
         collected[key] = input.value;
     });
 
-    return collected; // ← REMOVE the [componentId] nesting
+    return collected;
 };
 
 // COMPONENT APIS
